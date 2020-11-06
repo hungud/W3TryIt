@@ -198,13 +198,26 @@
             var inputValue = document.getElementById('myInput').value;
             var t = document.createTextNode(inputValue);
             li.appendChild(t);
-            if (inputValue === ''){
+            if (inputValue === '') {
                 alert('Bạn cần nhập tiêu đề việc cần làm');
             }
-            else{
+            else {
                 document.getElementById('myUL').appendChild(li);
             }
-            document.getElementById('myUL').value = '';  
+            document.getElementById('myUL').value = '';
+
+            var span = document.createElement('span');
+            var txt = document.createTextNode('\u00D7');
+            span.className = 'close';
+            span.appendChild(txt);
+            li.appendChild(span);
+
+            for (var idx = 0; idx < lstClose.length; idx++) {
+                lstClose[idx].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
 
         }
 
